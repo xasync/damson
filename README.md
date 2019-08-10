@@ -50,7 +50,7 @@ def create_kv(*args):
 kv = create_kv('name', 10)
 assert kv['name'] == 10 
 ```
-
+![image](https://raw.githubusercontent.com/xasync/damson/master/statics/damson-logo.jpg)
 
 Installation
 ------------
