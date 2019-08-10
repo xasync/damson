@@ -1,7 +1,7 @@
 import pytest
-from lupin.constraint import Required, DataType, Between
-from lupin.exception import (NotPassRequireException, NotPassDataTypeException, NotPassBetweenException,
-                             WrongIntervalException)
+from damson.constraint import Required, DataType, Between
+from damson.exception import (NotPassRequireException, NotPassDataTypeException, NotPassBetweenException,
+                              WrongIntervalException)
 
 
 def test_require():

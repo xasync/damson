@@ -1,13 +1,17 @@
-from exception import (NotPassRequireException, NotPassDataTypeException, NotPassBetweenException,
+from .exception import (NotPassRequireException, NotPassDataTypeException, NotPassBetweenException,
                        WrongIntervalException)
 
 
-class LupinConstraint(object):
+class DamsonConstraint(object):
+    """
+    This class is the base constraint and all damson's constraint extends to it.
+    """
+
     def __call__(self, *args, **kwargs):
         raise NotImplementedError()
 
 
-class Required(LupinConstraint):
+class Required(DamsonConstraint):
     """
     Make a promise that the field must to be exist
     """
@@ -19,7 +23,7 @@ class Required(LupinConstraint):
         return flag
 
 
-class DataType(LupinConstraint):
+class DataType(DamsonConstraint):
     """
     Make a promise about the field's type in python.
     args: python's build-in types,likes: int/str/list and etc.
@@ -40,7 +44,7 @@ class DataType(LupinConstraint):
             return True
 
 
-class Between(LupinConstraint):
+class Between(DamsonConstraint):
     """
     Make a promise that the field's value is between the interval
     """
@@ -52,6 +56,10 @@ class Between(LupinConstraint):
         self.eopen = eopen
 
     def __interval_str(self):
+        """
+        Format interval
+        :return: a formatted interval string
+        """
         return '{left}{start},{end}{right}'.format(
             left='(' if self.sopen else '[',
             start=self.start if self.start else 'N',

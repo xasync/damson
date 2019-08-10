@@ -3,4 +3,4 @@
 *.pyc
 build/
 dist/
-lupin.egg-info/
+*.egg-info/

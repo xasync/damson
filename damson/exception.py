@@ -1,4 +1,7 @@
-class LupinException(Exception):
+class DamsonException(Exception):
+    """
+    This class is the base Exception and all damson's exception extends to it.
+    """
     __kw_field = 'field'
     __kw_constraint = 'constraint'
 
@@ -10,7 +13,7 @@ class LupinException(Exception):
     def __str__(self):
         field_line = '' if not self.field else '"%s" is invalid! ' % self.field
         constraint_line = '' if not self.constraint else '[constraint:%s] ' % self.constraint
-        return '<lupin> {clazz}:{field}{constraint}{message} extra={extra}'.format(
+        return '<damson> {clazz}:{field}{constraint}{message} extra={extra}'.format(
             clazz=self.__class__.__name__,
             field=field_line,
             constraint=constraint_line,
@@ -19,17 +22,29 @@ class LupinException(Exception):
         )
 
 
-class WrongIntervalException(LupinException):
+class WrongIntervalException(DamsonException):
+    """
+    WrongIntervalException
+    """
     pass
 
 
-class NotPassRequireException(LupinException):
+class NotPassRequireException(DamsonException):
+    """
+    NotPassRequireException
+    """
     pass
 
 
-class NotPassDataTypeException(LupinException):
+class NotPassDataTypeException(DamsonException):
+    """
+    NotPassDataTypeException
+    """
     pass
 
 
-class NotPassBetweenException(LupinException):
+class NotPassBetweenException(DamsonException):
+    """
+    NotPassDataTypeException
+    """
     pass
