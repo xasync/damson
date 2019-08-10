@@ -10,9 +10,9 @@ def test_validate():
     print flag, errors
 
 
-def test_valid():
-    @lupin.valid(a=[Required(), DataType(int), Between(1, 10)],
-                 b=[Required(), DataType(int), Between(100, 1000, eopen=False)])
+def test_verify():
+    @lupin.verify(a=[Required(), DataType(int), Between(1, 10)],
+                  b=[Required(), DataType(int), Between(100, 1000, eopen=False)])
     def add(a, b):
         return a + b
 

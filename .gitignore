@@ -1,3 +1,6 @@
 .*
 !.gitingore
 *.pyc
+build/
+dist/
+lupin.egg-info/
