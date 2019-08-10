@@ -7,6 +7,7 @@ Damson: A Concise Python Validation Library™
 [![image](https://img.shields.io/github/contributors/xasync/damson.svg)](https://github.com/xasync/damson/graphs/contributors)
 
 Damson is a concise python library which aims to simplify the field validation.
+[![image](https://raw.githubusercontent.com/xasync/damson/master/statics/damson-banner.jpg)
 
 Hold your breath! The power of Damson:
 
