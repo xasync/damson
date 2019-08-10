@@ -19,6 +19,10 @@ class LupinException(Exception):
         )
 
 
+class WrongIntervalException(LupinException):
+    pass
+
+
 class NotPassRequireException(LupinException):
     pass
 
@@ -29,9 +33,3 @@ class NotPassDataTypeException(LupinException):
 
 class NotPassBetweenException(LupinException):
     pass
-
-
-try:
-    raise NotPassRequireException('adfadasd', field='name', constraint='the field is required')
-except Exception as e:
-    print e
