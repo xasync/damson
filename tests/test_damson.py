@@ -43,6 +43,14 @@ def test_verify():
     kv = create_kv('name', 10)
     assert kv['name'] == 10
 
+    class myclazz:
+        @damson.verify(hour=[DataType(int), Between(0, 24)], minute=[DataType(int), Between(0, 60)])
+        def func(self, hour, minute):
+            return True
+
+    instance = myclazz()
+    instance.func(0, 0)
+
 
 def test_package():
     print(damson.__version__)

@@ -30,6 +30,9 @@ def func_args_to_dict(func, args):
     if not inspect.isfunction(func) or not isinstance(args, (list, tuple)):
         raise ValueError()
     varnames = func.__code__.co_varnames
+    if 'self' in varnames:
+        args = args[1:]
+        varnames = [x for x in varnames if x != 'self']
 
     kvmap = {}
     # Special function declare, likes: f(*args),f(*args,**kwargs)
