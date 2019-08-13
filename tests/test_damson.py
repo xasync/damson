@@ -28,7 +28,7 @@ def test_verify():
         add(10, 1000)
         assert 'NotPassBetweenException' in str(e)
 
-    @damson.verify(**{'name': [Required(), DataType(str)], '1': [Required(), DataType(int)]})
+    @damson.verify(**{'name': [Required(), DataType(str)], '0': [Required(), DataType(int)]})
     def mix_args(name, *args):
         return '%s=%s' % (name, args)
 

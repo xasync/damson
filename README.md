@@ -17,7 +17,7 @@ import damson
 from damson.constraint import (Required, DataType, Between)
 
 
-@damson.verify(a=[DataType(int)], b=[DataType(int), Between(1, 10)])
+@damson.verify(a=[DataType(int,float)], b=[DataType(int), Between(1, 10)])
 def add(a, b, ):
     return a + b
 
@@ -34,7 +34,7 @@ except Exception as e:
     print(e)
 
 
-@damson.verify(**{'name': [Required(), DataType(str)], '1': [Required(), DataType(int)]})
+@damson.verify(**{'name': [Required(), DataType(str)], '0': [Required(), DataType(int)]})
 def mix_args(name, *args):
     return '%s=%s' % (name, args)
 

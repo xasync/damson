@@ -18,6 +18,7 @@ def test_data_type():
             'feature': {'test': True}, 'seq': (23, 345)}
 
     assert DataType(int)(data, 'age')
+    assert DataType(int, float)(data, 'age')
     assert DataType(str)(data, 'name')
     assert DataType(bool)(data, 'man')
     assert DataType(float)(data, 'salary')

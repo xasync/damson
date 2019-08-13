@@ -1,5 +1,5 @@
 from .exception import (NotPassRequireException, NotPassDataTypeException, NotPassBetweenException,
-                       WrongIntervalException)
+                        WrongIntervalException)
 
 
 class DamsonConstraint(object):
@@ -38,7 +38,8 @@ class DataType(DamsonConstraint):
         if obj and name in obj:
             flag = isinstance(obj[name], self.types)
             if not flag:
-                raise NotPassDataTypeException(field=name, constraint='the type must be one of %s' % self.types)
+                types_str = '(' + (','.join([x.__name__ for x in self.types if x])) + ')'
+                raise NotPassDataTypeException(field=name, constraint='the type must be one of %s' % types_str)
             return flag
         else:
             return True

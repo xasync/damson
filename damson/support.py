@@ -39,11 +39,12 @@ def func_args_to_dict(func, args):
         return kvmap
     # Deal normal function declare, likes:f(a,b),f(a,b,*args),f(a,b,*args,**kwargs)
     for pos, varname in enumerate(varnames):
-        if varname == 'args':
-            for index, arg in enumerate(args[pos:]):
-                kvmap[str(pos + index)] = arg
-            break
-        else:
-            if pos < len(args):
+        if pos + 1 == len(varnames):
+            if len(args) > pos + 1:
+                for index, arg in enumerate(args[pos:]):
+                    kvmap[str(index)] = arg
+            else:
                 kvmap[varname] = args[pos]
+        else:
+            kvmap[varname] = args[pos]
     return kvmap
