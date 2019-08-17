@@ -3,6 +3,7 @@ import damson
 from damson.constraint import Required, DataType, Between
 from damson.exception import NotPassBetweenException, NotPassDataTypeException
 import pytest
+import mocks
 
 
 def test_validate():
@@ -50,6 +51,11 @@ def test_verify():
 
     instance = myclazz()
     instance.func(0, 0)
+
+
+def test_object_method():
+    cc = mocks.ClassCase()
+    assert '2019-08-15' == cc.date2str(2019, 8, 15)
 
 
 def test_package():
